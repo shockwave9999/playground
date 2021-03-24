@@ -7,6 +7,7 @@ public class SinglyLinkedList<E> {
     public void addFirst(E item){
         head = new Node<>(item,head);
     }
+
     public void addLast(E item){
         insert(item);
     }
@@ -27,13 +28,14 @@ public class SinglyLinkedList<E> {
     public void printList(){
         Node<E> lastNode = head;
         while(lastNode.next != null){
-            System.out.println(lastNode.item);
+            System.out.print(lastNode.item);
             lastNode = lastNode.next;
         }
+        System.out.print(lastNode.item);
     }
 
     public int size(){
-        int c = 0;
+        int c = 1;
         Node<E> lastNode = head;
         while(lastNode.next != null){
             c++;
@@ -53,7 +55,13 @@ public class SinglyLinkedList<E> {
     }
 
     public static void main(String[] args) {
-        // write your code here
+        SinglyLinkedList<Character> list = new SinglyLinkedList<>();
+        list.insert('R');
+        list.insert('O');
+        list.insert('Y');
+
+        System.out.println(list.size());
+        list.printList();
     }
 
 }

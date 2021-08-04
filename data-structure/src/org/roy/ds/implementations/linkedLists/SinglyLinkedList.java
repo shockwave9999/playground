@@ -1,4 +1,4 @@
-package org.roy.ds.implementations;
+package org.roy.ds.implementations.linkedLists;
 
 public class SinglyLinkedList<E> {
 

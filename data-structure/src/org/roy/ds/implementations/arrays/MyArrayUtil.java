@@ -1,6 +1,6 @@
 package org.roy.ds.implementations.arrays;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class MyArrayUtil {
     public static final String TEXT_RESET = "\u001B[0m";
@@ -19,6 +19,15 @@ public class MyArrayUtil {
             i++;
         }
         return arr;
+    }
+
+    public static List<Integer> readArrayList(){
+        int[] arr=readArray();
+        List<Integer> intList = new ArrayList<Integer>(arr.length);
+        for (int i : arr) {
+            intList.add(i);
+        }
+        return intList;
     }
 
     public static void printArrayOneIndex(int[] arr,int index){

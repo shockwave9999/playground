@@ -21,6 +21,19 @@ public class MyArrayUtil {
         return arr;
     }
 
+    public static int[] generateRandomArray(Scanner sc){
+        System.out.println(TEXT_BLUE+"Enter Array Size:"+TEXT_RESET);
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        Random rn=new Random();
+        int i=0;
+        while(i < size){
+            arr[i] = new Random().ints(-100,100).findFirst().getAsInt();
+            i++;
+        }
+        return arr;
+    }
+
     public static List<Integer> readArrayList(){
         int[] arr=readArray();
         List<Integer> intList = new ArrayList<Integer>(arr.length);

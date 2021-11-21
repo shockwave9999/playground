@@ -1,5 +1,6 @@
 package org.roy.ds.implementations.arrays;
 
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -24,8 +25,14 @@ public class ArrayTraversalRealtime {
         System.out.println(TEXT_RED + "Please Enter Choice:" + TEXT_RESET);
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
+        System.out.println(TEXT_RED + "Please Enter 0 or 1 to provide manual input or generate a random array:" + TEXT_RESET);
+        int type = sc.nextInt();
         int[] arr;
-        arr = readArray(sc);
+        if(type == 0) {
+            arr = readArray(sc);
+        }else{
+            arr = readRandomArray(sc);
+        }
         switch (choice) {
             case 1:
                 TraverseArraySinglePointer.traverseLeftToRight(arr);
@@ -55,9 +62,22 @@ public class ArrayTraversalRealtime {
         return arr;
     }
 
+    public static int[] readRandomArray(Scanner sc){
+        System.out.println(TEXT_BLUE+"Enter Array Size:"+TEXT_RESET);
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        Random rn=new Random();
+        int i=0;
+        while(i < size){
+            arr[i] = new Random().ints(-100,100).findFirst().getAsInt();
+            i++;
+        }
+        return arr;
+    }
+
     public static void printArrayOneIndex(int[] arr,int index){
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -73,7 +93,7 @@ public class ArrayTraversalRealtime {
 
     public static void printArrayMultiIndex(int[] arr, Set<Integer> indexes){
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
